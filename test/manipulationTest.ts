@@ -24,8 +24,6 @@
  *  THE SOFTWARE.
  */
 import { parseTranslateTransform, getTransformScaleRatios } from "../src/manipulation";
-import { select } from "d3-selection";
-import { testDom } from "powerbi-visuals-utils-testutils";
 
 
 // module powerbi.extensibility.utils.svg.test {
@@ -56,32 +54,15 @@ describe("SvgUtil tests", () => {
         expect(parsedTransform.y).toBe("0");
     });
 
-    it("get transform scale ratios under parent scope", (done) => {
-        let div = testDom("500", "500");
-        div.style.transform = "scale(0.75,0.5)";
-        let svg = select(div).append("svg")
-            .attr("width", 350)
-            .attr("height", 200).style("position", "absolute");
-        let g = svg.append("g"); // the axisGraphicsContext
-        g.append("rect")
-            .attr("x", 0)
-            .attr("y", 200)
-            .attr("width", 350)
-            .attr("height", 80)
-            .style("fill", "red"); // this rect is simulating the x-axis which fills the <svg> parent
-        g.append("rect")
-            .attr("x", 0)
-            .attr("y", 200)
-            .attr("width", 80)
-            .attr("height", 200).style("fill", "red"); // this rect is simulating the y-axis...
+    it("get transform scale ratios under parent scope", () => {
+        const svgElement = {
+            getBoundingClientRect: () => ({ width: 75, height: 50 }),
+            getBBox: () => ({ width: 100, height: 100 })
+        } as unknown as SVGSVGElement;
 
-        setTimeout(() => {
-            let ratios = getTransformScaleRatios(<SVGSVGElement>svg.node());
-            expect(ratios.x).toBe(0.75);
-            expect(ratios.y).toBe(0.5);
-
-            done();
-        }, 10);
+        let ratios = getTransformScaleRatios(svgElement);
+        expect(ratios.x).toBe(0.75);
+        expect(ratios.y).toBe(0.5);
     });
 });
 // }
