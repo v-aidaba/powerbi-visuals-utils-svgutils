@@ -11,8 +11,6 @@ export default [
             "test/**",
             "lib/**",
             "eslint.config.mjs",
-            "karma.conf.ts",
-            "webpack.config.js",
             "MIGRATION_GUIDE.md",
             "powerbi-visuals-utils-formattingutils/**"
         ]

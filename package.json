@@ -5,6 +5,12 @@
   "main": "lib/index.js",
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "sideEffects": false,
   "repository": {
     "type": "git",
@@ -34,23 +40,21 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/d3": "^7.4.3",
-    "@types/node": "^20.12.4",
-    "@typescript-eslint/eslint-plugin": "^8.59.3",
-    "@typescript-eslint/parser": "^8.59.3",
+    "@types/node": "^25.9.2",
+    "@typescript-eslint/eslint-plugin": "^8.61.0",
+    "@typescript-eslint/parser": "^8.61.0",
     "@vitest/coverage-v8": "^4.1.6",
-    "eslint": "^10.3.0",
+    "eslint": "^10.5.0",
     "eslint-plugin-powerbi-visuals": "^1.1.1",
-    "happy-dom": "^18.0.1",
+    "happy-dom": "^20.10.2",
     "powerbi-visuals-api": "^5.11.0",
     "powerbi-visuals-utils-testutils": "^6.1.1",
-    "script-loader": "0.7.2",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.6",
-    "webpack-node-externals": "3.0.0"
+    "vitest": "^4.1.8"
   },
   "dependencies": {
     "d3-selection": "^3.0.0",
     "d3-timer": "^3.0.1",
-    "powerbi-visuals-utils-typeutils": "^6.0.3"
+    "powerbi-visuals-utils-typeutils": "^7.0.0"
   }
 }
