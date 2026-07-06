@@ -10,9 +10,7 @@ export default [
             "coverage/**",
             "test/**",
             "lib/**",
-            "eslint.config.mjs",
-            "MIGRATION_GUIDE.md",
-            "powerbi-visuals-utils-formattingutils/**"
+            "eslint.config.mjs"
         ]
     },
     js.configs.recommended,
