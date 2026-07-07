@@ -70,12 +70,14 @@ export function bottomRight(rect: IRect): IPoint {
     return { x: rect.left + rect.width, y: rect.top + rect.height };
 }
 
-export function equals(rect: IRect, other: IRect): boolean {
+export function equals(rect: IRect, other: IRect | null): boolean {
     return other !== undefined && other !== null &&
         rect.left === other.left && rect.top === other.top && rect.width === other.width && rect.height === other.height;
 }
 
-export function clone(rect: IRect): IRect {
+export function clone(rect: IRect): IRect;
+export function clone(rect: IRect | null): IRect | null;
+export function clone(rect: IRect | null): IRect | null {
     return (rect !== null) ? { left: rect.left, top: rect.top, width: rect.width, height: rect.height } : null;
 }
 
@@ -164,11 +166,11 @@ export function equalWithPrecision(rect1: IRect, rect2: IRect): boolean {
             Double.equalWithPrecision(rect1.width, rect2.width) && Double.equalWithPrecision(rect1.height, rect2.height));
 }
 
-export function isEmpty(rect: IRect): boolean {
+export function isEmpty(rect: IRect | null): boolean {
     return rect === undefined || rect === null || (rect.width === 0 && rect.height === 0);
 }
 
-export function containsPoint(rect: IRect, point: IPoint): boolean {
+export function containsPoint(rect: IRect | null, point: IPoint | null): boolean {
     if ((rect === null) || (point === null)) {
         return false;
     }
@@ -178,7 +180,7 @@ export function containsPoint(rect: IRect, point: IPoint): boolean {
         Double.lessOrEqualWithPrecision(point.y, rect.top + rect.height);
 }
 
-export function isIntersecting(rect1: IRect, rect2: IRect): boolean {
+export function isIntersecting(rect1: IRect | null, rect2: IRect | null): boolean {
     if (!rect1 || !rect2) {
         return false;
     }

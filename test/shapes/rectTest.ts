@@ -28,7 +28,7 @@ import {IRect} from "../../src/shapes/rect/irect";
 import * as Rect from "../../src/shapes/shapes";
 
 describe("Rect tests", () => {
-    function AreRectsEqual(rectA, rectB): boolean {
+    function AreRectsEqual(rectA: IRect, rectB: IRect): boolean {
         return (rectB.left === rectA.left && rectB.top === rectA.top && rectB.width === rectA.width && rectB.height === rectA.height);
     }
 
@@ -91,7 +91,7 @@ describe("Rect tests", () => {
     });
 
     it("Is Empty - null", () => {
-        const rectA = null;
+        const rectA: IRect | null = null;
         const isEmpty = Rect.isEmpty(rectA);
         expect(isEmpty).toBe(true);
     });
@@ -112,13 +112,13 @@ describe("Rect tests", () => {
 
     it("Is Intersecting - first rect is null", () => {
         const rectA = { left: 0, top: 0, width: 200, height: 200 };
-        const rectB = null;
+        const rectB: IRect | null = null;
         const isIntersecting = Rect.isIntersecting(rectA, rectB);
         expect(isIntersecting).toBe(false);
     });
 
     it("Is Intersecting - second rect is null", () => {
-        const rectA = null;
+        const rectA: IRect | null = null;
         const rectB = { left: 0, top: 0, width: 200, height: 200 };
         const isIntersecting = Rect.isIntersecting(rectA, rectB);
         expect(isIntersecting).toBe(false);
@@ -374,13 +374,13 @@ describe("Rect tests", () => {
 
     it("Is Intersecting - first null", () => {
         const rectA = { left: 70, top: 110, width: 130, height: 270 };
-        const rectB = null;
+        const rectB: IRect | null = null;
         let isIntersecting = Rect.isIntersecting(rectA, rectB);
         expect(isIntersecting).toBe(false);
     });
 
     it("Is Intersecting - second null", () => {
-        const rectA = null;
+        const rectA: IRect | null = null;
         const rectB = { left: 70, top: 110, width: 130, height: 270 };
         let isIntersecting = Rect.isIntersecting(rectA, rectB);
         expect(isIntersecting).toBe(false);
@@ -415,7 +415,7 @@ describe("Rect tests", () => {
     });
 
     it("Intersect - Rect A is null", () => {
-        const rectA = null;
+        const rectA: IRect | null = null;
         const rectB = { left: 70, top: 110, width: 130, height: 270 };
         let isIntersecting = Rect.isIntersecting(rectA, rectB);
         expect(isIntersecting).toBe(false);
@@ -423,7 +423,7 @@ describe("Rect tests", () => {
 
     it("Intersect - Rect B is null", () => {
         const rectA = { left: 70, top: 110, width: 130, height: 270 };
-        const rectB = null;
+        const rectB: IRect | null = null;
         let isIntersecting = Rect.isIntersecting(rectA, rectB);
         expect(isIntersecting).toBe(false);
     });
